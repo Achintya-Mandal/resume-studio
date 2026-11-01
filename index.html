@@ -1075,26 +1075,13 @@ window.addEventListener('beforeunload', e => {
 });
 
 // ═══════════════════════════════════════════════════
-//  Visitor counter  (base offset 99 → starts at 100)
-// ═══════════════════════════════════════════════════
-
-async function loadVisitorCount() {
-  const el = document.getElementById('visitor-count');
-  try {
-    const res  = await fetch('https://api.countapi.xyz/hit/achintya-mandal-resume-studio/visitors');
-    const data = await res.json();
-    el.textContent = ((data.value || 1) + 99).toLocaleString();
-  } catch(e) {
-    el.textContent = '100+';
-  }
-}
-
-// ═══════════════════════════════════════════════════
 //  Init  —  start with empty profile
 // ═══════════════════════════════════════════════════
 
+const VISITOR_COUNT = 100;
+document.getElementById('visitor-count').textContent = VISITOR_COUNT.toLocaleString();
+
 populateForm();
-loadVisitorCount();
 </script>
 </body>
 </html>
