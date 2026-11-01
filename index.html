@@ -16,6 +16,7 @@
       --accent:      #6c8aff;
       --accent-dark: #2c3e7a;
       --success:     #4caf87;
+      --warn:        #f0a500;
       --danger:      #e05555;
       --input-bg:    #1c2040;
       --sidebar-w:   230px;
@@ -32,8 +33,6 @@
       font-size: 14px;
     }
 
-    /* ── Layout ─────────────────────────────────────────────── */
-
     .layout { display: flex; height: 100vh; }
 
     .sidebar {
@@ -49,56 +48,35 @@
 
     .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
-    /* ── Sidebar ─────────────────────────────────────────────── */
-
     .sb-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: #fff;
+      font-size: 16px; font-weight: 800; color: #fff;
       padding-bottom: 14px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 8px;
     }
 
     .sb-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .1em;
+      font-size: 10.5px; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em;
       margin: 14px 0 5px;
     }
 
     .nav-link {
-      display: block;
-      padding: 7px 10px;
-      color: var(--muted);
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background .12s, color .12s;
-      user-select: none;
+      display: block; padding: 7px 10px;
+      color: var(--muted); text-decoration: none;
+      border-radius: 6px; font-size: 13px; cursor: pointer;
+      transition: background .12s, color .12s; user-select: none;
     }
-    .nav-link:hover { background: rgba(255,255,255,.05); color: var(--text); }
+    .nav-link:hover  { background: rgba(255,255,255,.05); color: var(--text); }
     .nav-link.active { background: var(--border); color: var(--text); }
 
-    /* ── Buttons ────────────────────────────────────────────── */
-
     .btn {
-      display: block;
-      width: 100%;
-      padding: 8px 12px;
-      border-radius: 7px;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      color: var(--text);
-      font-size: 13px;
-      font-family: inherit;
-      cursor: pointer;
-      text-align: center;
-      transition: background .12s;
-      margin-bottom: 7px;
+      display: block; width: 100%;
+      padding: 8px 12px; border-radius: 7px;
+      border: 1px solid var(--border); background: var(--bg-card);
+      color: var(--text); font-size: 13px; font-family: inherit;
+      cursor: pointer; text-align: center;
+      transition: background .12s; margin-bottom: 7px;
     }
     .btn:hover { background: var(--border); }
 
@@ -115,51 +93,46 @@
     .btn-accent:hover { background: rgba(108,138,255,.08); }
 
     .btn-sm {
-      padding: 5px 12px;
-      font-size: 12px;
-      width: auto;
-      display: inline-block;
-      margin-bottom: 0;
+      padding: 5px 12px; font-size: 12px;
+      width: auto; display: inline-block; margin-bottom: 0;
     }
-
     .btn-icon {
       width: 32px; height: 32px; padding: 0;
       display: inline-flex; align-items: center; justify-content: center;
       border-radius: 6px; font-size: 14px;
     }
 
-    /* ── Tabs bar ───────────────────────────────────────────── */
+    /* file status chip */
+    #file-status {
+      font-size: 11.5px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: none;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    #file-status.open   { display: block; background: rgba(76,175,135,.12); color: var(--success); border: 1px solid rgba(76,175,135,.3); }
+    #file-status.dirty  { display: block; background: rgba(240,165,0,.10);  color: var(--warn);    border: 1px solid rgba(240,165,0,.3); }
 
     .tabs-bar {
-      display: flex;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-sidebar);
-      padding: 0 24px;
+      display: flex; border-bottom: 1px solid var(--border);
+      background: var(--bg-sidebar); padding: 0 24px;
     }
-
     .tab-btn {
-      padding: 12px 18px;
-      background: none; border: none;
-      color: var(--muted);
-      font-size: 13.5px; font-family: inherit;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
+      padding: 12px 18px; background: none; border: none;
+      color: var(--muted); font-size: 13.5px; font-family: inherit;
+      cursor: pointer; border-bottom: 2px solid transparent;
       transition: color .12s, border-color .12s;
     }
     .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
     .tab-btn:hover  { color: var(--text); }
 
-    /* ── Panels ─────────────────────────────────────────────── */
-
     .panel { flex: 1; overflow-y: auto; padding: 28px 36px; display: none; }
     .panel.active { display: block; }
 
-    /* ── Form ───────────────────────────────────────────────── */
-
     .block-title {
       font-size: 17px; font-weight: 800; color: #fff;
-      margin: 26px 0 10px;
-      padding-bottom: 8px;
+      margin: 26px 0 10px; padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
     }
     .block-title:first-of-type { margin-top: 0; }
@@ -170,63 +143,40 @@
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
     .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
-
     .field label {
-      font-size: 11px; font-weight: 600;
-      color: var(--muted);
+      font-size: 11px; font-weight: 600; color: var(--muted);
       text-transform: uppercase; letter-spacing: .07em;
     }
-
-    .field input,
-    .field textarea {
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text);
-      padding: 8px 10px;
-      font-size: 13.5px; font-family: inherit;
-      outline: none; resize: vertical;
-      transition: border-color .15s;
+    .field input, .field textarea {
+      background: var(--input-bg); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text);
+      padding: 8px 10px; font-size: 13.5px; font-family: inherit;
+      outline: none; resize: vertical; transition: border-color .15s;
     }
-    .field input:focus,
-    .field textarea:focus { border-color: var(--accent); }
-    .field input::placeholder,
-    .field textarea::placeholder { color: #3a3d5a; }
+    .field input:focus, .field textarea:focus { border-color: var(--accent); }
+    .field input::placeholder, .field textarea::placeholder { color: #3a3d5a; }
 
     .section-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 12px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 20px; margin-bottom: 12px;
     }
-
     .card-header {
       display: flex; justify-content: space-between; align-items: center;
       margin-bottom: 14px;
     }
     .card-header-title { font-weight: 700; font-size: 13px; color: #ccc; }
 
-    /* ── Preview panel ──────────────────────────────────────── */
-
     .preview-toolbar {
       display: flex; gap: 10px; align-items: center;
       margin-bottom: 22px; flex-wrap: wrap;
     }
-
     .resume-paper {
-      background: #fff; color: #1a1a1a;
-      max-width: 794px;
-      margin: 0 auto;
-      padding: 40px 48px;
-      border-radius: 3px;
+      background: #fff; color: #1a1a1a; max-width: 794px;
+      margin: 0 auto; padding: 40px 48px; border-radius: 3px;
       box-shadow: 0 4px 28px rgba(0,0,0,.5);
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 9pt;
-      line-height: 1.45;
+      font-size: 9pt; line-height: 1.45;
     }
-
-    /* ── Toast ──────────────────────────────────────────────── */
 
     .toast {
       position: fixed; bottom: 24px; right: 24px;
@@ -239,18 +189,14 @@
     }
     .toast.show    { opacity: 1; transform: translateY(0); }
     .toast.success { border-color: var(--success); color: var(--success); }
+    .toast.warn    { border-color: var(--warn);    color: var(--warn); }
     .toast.error   { border-color: var(--danger);  color: var(--danger); }
 
-    /* ── AI Tailor modal ────────────────────────────────────── */
-
     .overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.75);
-      z-index: 1000;
-      display: none; align-items: center; justify-content: center;
+      position: fixed; inset: 0; background: rgba(0,0,0,.75);
+      z-index: 1000; display: none; align-items: center; justify-content: center;
     }
     .overlay.open { display: flex; }
-
     .modal {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 14px; padding: 28px 30px;
@@ -258,33 +204,20 @@
     }
     .modal h3 { font-size: 18px; color: #fff; margin-bottom: 6px; }
     .modal .modal-sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; line-height: 1.5; }
-    .modal .field input,
-    .modal .field textarea {
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text); padding: 8px 10px;
-      font-size: 13px; font-family: inherit;
-      outline: none; resize: vertical;
+    .modal .field input, .modal .field textarea {
+      background: var(--input-bg); border: 1px solid var(--border);
+      border-radius: 6px; color: var(--text); padding: 8px 10px;
+      font-size: 13px; font-family: inherit; outline: none; resize: vertical;
     }
     .modal .field textarea.mono { font-family: 'Courier New', monospace; font-size: 11.5px; }
     .modal-footer { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; flex-wrap: wrap; }
 
-    /* ── JSON preview in sidebar ────────────────────────────── */
-
     .json-box {
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 10px;
-      font-family: 'Courier New', monospace;
-      font-size: 10.5px;
-      color: var(--muted);
-      max-height: 160px;
-      overflow-y: auto;
-      white-space: pre;
-      display: none;
-      margin-top: 6px;
+      background: var(--input-bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 10px;
+      font-family: 'Courier New', monospace; font-size: 10.5px; color: var(--muted);
+      max-height: 160px; overflow-y: auto; white-space: pre;
+      display: none; margin-top: 6px;
     }
     .json-box.open { display: block; }
 
@@ -293,9 +226,7 @@
       font-size: 11px; color: #3a3d5a; line-height: 1.6;
     }
 
-    @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: 1fr 1fr; }
-    }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 640px) {
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
       .sidebar { display: none; }
@@ -322,12 +253,23 @@
     <a class="nav-link" id="nav-certifications" onclick="goTo('sec-certifications')">📜 Certifications</a>
 
     <span class="sb-label">Profile</span>
-    <button class="btn" onclick="importJSON()">📂 Import JSON</button>
-    <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
-    <button class="btn" onclick="exportJSON()">⬇️ Export JSON</button>
+
+    <!-- file status chip: shows filename + dirty state -->
+    <div id="file-status" title=""></div>
+
+    <button class="btn btn-primary" onclick="openProfileFile()">📂 Open profile.json</button>
+    <!-- fallback file input for browsers without File System Access API -->
+    <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImportFallback(event)">
+
+    <button class="btn" id="btn-save" onclick="saveToFile()">
+      💾 Save &nbsp;<span style="font-size:10px;opacity:.45">Ctrl+S</span>
+    </button>
+
     <button class="btn" onclick="toggleJSONPreview()">👁️ Show / hide JSON</button>
     <div id="json-preview" class="json-box"></div>
-    <button class="btn btn-danger" onclick="resetProfile()">🧹 Reset to empty</button>
+
+    <button class="btn" onclick="downloadJSON()">⬇️ Download JSON</button>
+    <button class="btn btn-danger" onclick="resetProfile()">🧹 Reset</button>
 
     <span class="sb-label">AI Tailor</span>
     <button class="btn btn-accent" onclick="openTailorModal()">✨ Tailor with Claude</button>
@@ -336,7 +278,9 @@
     </div>
 
     <div class="sb-footer">
-      Auto-saved to browser localStorage.<br>Use Export to back up.
+      Open your profile.json to start.<br>
+      Ctrl+S saves back to the same file.<br>
+      New session always starts fresh.
     </div>
   </nav>
 
@@ -350,7 +294,6 @@
     <!-- Edit Panel ---------------------------------------- -->
     <div id="panel-edit" class="panel active">
 
-      <!-- Contact -->
       <div id="sec-contact">
         <div class="block-title">👤 Header &amp; Contact</div>
         <div class="grid-3">
@@ -363,7 +306,6 @@
         </div>
       </div>
 
-      <!-- Meta -->
       <div id="sec-meta">
         <div class="block-title">ℹ️ Meta</div>
         <p class="subtitle">Used in resume header subtitle and job hunter automation.</p>
@@ -378,7 +320,6 @@
         </div>
       </div>
 
-      <!-- Summary -->
       <div id="sec-summary">
         <div class="block-title">📌 Profile Summary</div>
         <div class="field">
@@ -387,21 +328,18 @@
         </div>
       </div>
 
-      <!-- Experience -->
       <div id="sec-experience">
         <div class="block-title">💼 Experience</div>
         <div id="exp-list"></div>
         <button class="btn" style="max-width:210px" onclick="addExp()">➕ Add Experience</button>
       </div>
 
-      <!-- Education -->
       <div id="sec-education">
         <div class="block-title">🎓 Education</div>
         <div id="edu-list"></div>
         <button class="btn" style="max-width:210px" onclick="addEdu()">➕ Add Education</button>
       </div>
 
-      <!-- Skills -->
       <div id="sec-skills">
         <div class="block-title">🛠️ Skills</div>
         <p class="subtitle">Each row is a category. Items are comma-separated. Order matters — top rows appear first on the resume.</p>
@@ -409,13 +347,10 @@
         <div style="display:grid;grid-template-columns:1fr 2.5fr auto;gap:12px;align-items:end;max-width:680px;margin-top:8px">
           <div class="field"><label>New category</label><input id="new-sk-cat"   placeholder="e.g. Languages"></div>
           <div class="field"><label>Items (comma-separated)</label><input id="new-sk-items" placeholder="Python, JavaScript, SQL"></div>
-          <div style="padding-bottom:10px">
-            <button class="btn btn-sm" onclick="addSkillCat()">➕ Add</button>
-          </div>
+          <div style="padding-bottom:10px"><button class="btn btn-sm" onclick="addSkillCat()">➕ Add</button></div>
         </div>
       </div>
 
-      <!-- Achievements -->
       <div id="sec-achievements">
         <div class="block-title">🏆 Achievements &amp; Community</div>
         <p class="subtitle">HTML is allowed — e.g. <code style="color:var(--accent);font-size:11px">&lt;a href="..."&gt;link text&lt;/a&gt;</code></p>
@@ -423,14 +358,13 @@
         <button class="btn" style="max-width:210px" onclick="addAch()">➕ Add Achievement</button>
       </div>
 
-      <!-- Certifications -->
       <div id="sec-certifications">
         <div class="block-title">📜 Certifications</div>
         <div id="cert-list"></div>
         <button class="btn" style="max-width:210px" onclick="addCert()">➕ Add Certification</button>
       </div>
 
-    </div><!-- /panel-edit -->
+    </div>
 
     <!-- Preview Panel ------------------------------------- -->
     <div id="panel-preview" class="panel">
@@ -442,10 +376,9 @@
       <div id="resume-preview" class="resume-paper"></div>
     </div>
 
-  </div><!-- /main -->
-</div><!-- /layout -->
+  </div>
+</div>
 
-<!-- Toast -->
 <div id="toast" class="toast"></div>
 
 <!-- AI Tailor Modal -->
@@ -453,19 +386,16 @@
   <div class="modal">
     <h3>✨ Tailor Resume with Claude</h3>
     <p class="modal-sub">
-      Fill in the job details below and click <strong>Generate prompt</strong>.
-      Then copy the prompt and paste it into
-      <a href="https://claude.ai" target="_blank" style="color:var(--accent)">claude.ai</a>.
-      Claude will return a tailored profile JSON — paste it back here using
-      <em>Import JSON</em> in the sidebar.
+      Fill in the job details and click <strong>Generate prompt</strong>.
+      Copy it into <a href="https://claude.ai" target="_blank" style="color:var(--accent)">claude.ai</a>.
+      Claude returns tailored JSON — save that as your profile.json and open it here.
     </p>
-
     <div class="grid-2">
-      <div class="field"><label>Job Company</label><input id="tl-co"    placeholder="e.g. Google"></div>
-      <div class="field"><label>Job Title</label>  <input id="tl-ti"    placeholder="e.g. Senior AI Engineer"></div>
+      <div class="field"><label>Job Company</label><input id="tl-co" placeholder="e.g. Google"></div>
+      <div class="field"><label>Job Title</label>  <input id="tl-ti" placeholder="e.g. Senior AI Engineer"></div>
     </div>
-    <div class="field"><label>Job Description (paste the full JD)</label>
-      <textarea id="tl-jd" rows="7" placeholder="Paste the job description here..."></textarea>
+    <div class="field"><label>Job Description</label>
+      <textarea id="tl-jd" rows="7" placeholder="Paste the full job description here..."></textarea>
     </div>
     <div class="field"><label>Generated Claude prompt (copy this)</label>
       <textarea id="tl-prompt" class="mono" rows="10" readonly placeholder="Click Generate prompt ↓"></textarea>
@@ -480,10 +410,8 @@
 
 <script>
 // ═══════════════════════════════════════════════════
-//  State
+//  State  —  in-memory only, no localStorage
 // ═══════════════════════════════════════════════════
-
-const STORAGE_KEY = 'resume_studio_v1';
 
 const EMPTY = {
   name:'', email:'', phone:'', location:'', linkedin:'', github:'', summary:'',
@@ -494,50 +422,70 @@ const EMPTY = {
   }
 };
 
-let profile = loadProfile();
+let profile    = JSON.parse(JSON.stringify(EMPTY));
+let fileHandle = null;   // FileSystemFileHandle if opened via File System Access API
+let isDirty    = false;
 
 // ═══════════════════════════════════════════════════
-//  Storage
+//  Dirty tracking
 // ═══════════════════════════════════════════════════
 
-function loadProfile() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const p = JSON.parse(raw);
-      const out = Object.assign({}, EMPTY, p);
-      out.meta = Object.assign({}, EMPTY.meta, p.meta || {});
-      if (!Array.isArray(out.achievements))   out.achievements = [];
-      if (!Array.isArray(out.certifications)) out.certifications = [];
-      if (!Array.isArray(out.experience))     out.experience = [];
-      if (!Array.isArray(out.education))      out.education = [];
-      if (!out.skills || typeof out.skills !== 'object') out.skills = {};
-      return out;
-    }
-  } catch(e) {}
-  return JSON.parse(JSON.stringify(EMPTY));
-}
-
-function save() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(profile)); } catch(e) {}
+function markDirty() {
+  isDirty = true;
+  updateFileStatus();
   const jb = document.getElementById('json-preview');
   if (jb.classList.contains('open')) jb.textContent = JSON.stringify(profile, null, 2);
+}
+
+function markClean() {
+  isDirty = false;
+  updateFileStatus();
+}
+
+function updateFileStatus() {
+  const el = document.getElementById('file-status');
+  if (!el) return;
+  if (!fileHandle && !isDirty) {
+    el.className = 'file-status';   // hidden
+    return;
+  }
+  const name = fileHandle ? fileHandle.name : 'unsaved';
+  if (isDirty) {
+    el.textContent = '● ' + name;
+    el.title = 'Unsaved changes — Ctrl+S to save';
+    el.className = 'dirty';
+  } else {
+    el.textContent = '✓ ' + name;
+    el.title = name;
+    el.className = 'open';
+  }
 }
 
 // ═══════════════════════════════════════════════════
 //  Field helpers
 // ═══════════════════════════════════════════════════
 
-function sf(key, val) { profile[key] = val; save(); }
-function sm(key, val) { profile.meta[key] = val; save(); }
+function sf(key, val) { profile[key] = val; markDirty(); }
+function sm(key, val) { profile.meta[key] = val; markDirty(); }
 
 function esc(str) {
   return String(str ?? '')
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+function mergeProfile(p) {
+  const out = Object.assign({}, EMPTY, p);
+  out.meta = Object.assign({}, EMPTY.meta, p.meta || {});
+  if (!Array.isArray(out.achievements))   out.achievements = [];
+  if (!Array.isArray(out.certifications)) out.certifications = [];
+  if (!Array.isArray(out.experience))     out.experience = [];
+  if (!Array.isArray(out.education))      out.education = [];
+  if (!out.skills || typeof out.skills !== 'object') out.skills = {};
+  return out;
+}
+
 // ═══════════════════════════════════════════════════
-//  Populate form on load
+//  Populate form
 // ═══════════════════════════════════════════════════
 
 function populateForm() {
@@ -557,11 +505,7 @@ function populateForm() {
   setv('f-mp', profile.meta.preferred_location);
   setv('f-mr', profile.meta.willing_to_relocate);
 
-  renderExp();
-  renderEdu();
-  renderSkills();
-  renderAch();
-  renderCerts();
+  renderExp(); renderEdu(); renderSkills(); renderAch(); renderCerts();
 }
 
 function setv(id, val) {
@@ -587,17 +531,17 @@ function renderExp() {
       </div>
       <div class="grid-2">
         <div class="field"><label>Company</label>
-          <input value="${esc(e.company)}" oninput="profile.experience[${i}].company=this.value;save()"></div>
+          <input value="${esc(e.company)}" oninput="profile.experience[${i}].company=this.value;markDirty()"></div>
         <div class="field"><label>Title</label>
-          <input value="${esc(e.title)}" oninput="profile.experience[${i}].title=this.value;save()"></div>
+          <input value="${esc(e.title)}" oninput="profile.experience[${i}].title=this.value;markDirty()"></div>
         <div class="field"><label>Start</label>
-          <input value="${esc(e.start)}" placeholder="Oct 2023" oninput="profile.experience[${i}].start=this.value;save()"></div>
+          <input value="${esc(e.start)}" placeholder="Oct 2023" oninput="profile.experience[${i}].start=this.value;markDirty()"></div>
         <div class="field"><label>End</label>
-          <input value="${esc(e.end)}" placeholder="Present" oninput="profile.experience[${i}].end=this.value;save()"></div>
+          <input value="${esc(e.end)}" placeholder="Present" oninput="profile.experience[${i}].end=this.value;markDirty()"></div>
       </div>
       <div class="field"><label>Bullets — one per line</label>
         <textarea rows="6"
-          oninput="profile.experience[${i}].bullets=this.value.split('\\n').filter(l=>l.trim());save()"
+          oninput="profile.experience[${i}].bullets=this.value.split('\\n').filter(l=>l.trim());markDirty()"
         >${esc((e.bullets||[]).join('\n'))}</textarea>
       </div>
     </div>`).join('');
@@ -605,11 +549,9 @@ function renderExp() {
 
 function addExp() {
   profile.experience.push({ company:'', title:'', start:'', end:'Present', bullets:[] });
-  save(); renderExp();
+  markDirty(); renderExp();
 }
-function rmExp(i) {
-  profile.experience.splice(i,1); save(); renderExp();
-}
+function rmExp(i) { profile.experience.splice(i,1); markDirty(); renderExp(); }
 
 // ═══════════════════════════════════════════════════
 //  Education
@@ -629,24 +571,19 @@ function renderEdu() {
       </div>
       <div class="grid-2">
         <div class="field"><label>Degree</label>
-          <input value="${esc(e.degree)}" oninput="profile.education[${i}].degree=this.value;save()"></div>
+          <input value="${esc(e.degree)}" oninput="profile.education[${i}].degree=this.value;markDirty()"></div>
         <div class="field"><label>University</label>
-          <input value="${esc(e.university)}" oninput="profile.education[${i}].university=this.value;save()"></div>
+          <input value="${esc(e.university)}" oninput="profile.education[${i}].university=this.value;markDirty()"></div>
         <div class="field"><label>Year</label>
-          <input value="${esc(e.year)}" oninput="profile.education[${i}].year=this.value;save()"></div>
+          <input value="${esc(e.year)}" oninput="profile.education[${i}].year=this.value;markDirty()"></div>
         <div class="field"><label>GPA (optional)</label>
-          <input value="${esc(e.gpa)}" oninput="profile.education[${i}].gpa=this.value;save()"></div>
+          <input value="${esc(e.gpa)}" oninput="profile.education[${i}].gpa=this.value;markDirty()"></div>
       </div>
     </div>`).join('');
 }
 
-function addEdu() {
-  profile.education.push({ degree:'', university:'', year:'', gpa:'' });
-  save(); renderEdu();
-}
-function rmEdu(i) {
-  profile.education.splice(i,1); save(); renderEdu();
-}
+function addEdu() { profile.education.push({ degree:'', university:'', year:'', gpa:'' }); markDirty(); renderEdu(); }
+function rmEdu(i) { profile.education.splice(i,1); markDirty(); renderEdu(); }
 
 // ═══════════════════════════════════════════════════
 //  Skills
@@ -684,7 +621,7 @@ function renameSkill(idx, newKey) {
   const rebuilt = {};
   entries.forEach(([k,v], i) => { rebuilt[i === idx ? newKey : k] = v; });
   profile.skills = rebuilt;
-  save();
+  markDirty();
 }
 
 function updateSkillItems(idx, csv) {
@@ -692,14 +629,14 @@ function updateSkillItems(idx, csv) {
   if (!entries[idx]) return;
   const [cat] = entries[idx];
   profile.skills[cat] = csv.split(',').map(s=>s.trim()).filter(Boolean);
-  save();
+  markDirty();
 }
 
 function rmSkill(idx) {
   const entries = Object.entries(profile.skills);
   if (!entries[idx]) return;
   delete profile.skills[entries[idx][0]];
-  save(); renderSkills();
+  markDirty(); renderSkills();
 }
 
 function addSkillCat() {
@@ -710,7 +647,7 @@ function addSkillCat() {
   profile.skills[name] = items ? items.split(',').map(s=>s.trim()).filter(Boolean) : [];
   document.getElementById('new-sk-cat').value   = '';
   document.getElementById('new-sk-items').value = '';
-  save(); renderSkills();
+  markDirty(); renderSkills();
 }
 
 // ═══════════════════════════════════════════════════
@@ -732,18 +669,14 @@ function renderAch() {
       <div class="field">
         <label>Text — HTML allowed, e.g. &lt;a href="..."&gt;link&lt;/a&gt;</label>
         <textarea rows="3"
-          oninput="profile.achievements[${i}]=this.value;save()"
+          oninput="profile.achievements[${i}]=this.value;markDirty()"
         >${esc(a)}</textarea>
       </div>
     </div>`).join('');
 }
 
-function addAch() {
-  profile.achievements.push(''); save(); renderAch();
-}
-function rmAch(i) {
-  profile.achievements.splice(i,1); save(); renderAch();
-}
+function addAch() { profile.achievements.push(''); markDirty(); renderAch(); }
+function rmAch(i) { profile.achievements.splice(i,1); markDirty(); renderAch(); }
 
 // ═══════════════════════════════════════════════════
 //  Certifications
@@ -763,74 +696,134 @@ function renderCerts() {
       </div>
       <div class="grid-2">
         <div class="field"><label>Name</label>
-          <input value="${esc(c.name)}" oninput="profile.certifications[${i}].name=this.value;save()"></div>
+          <input value="${esc(c.name)}" oninput="profile.certifications[${i}].name=this.value;markDirty()"></div>
         <div class="field"><label>Issuer</label>
-          <input value="${esc(c.issuer)}" oninput="profile.certifications[${i}].issuer=this.value;save()"></div>
+          <input value="${esc(c.issuer)}" oninput="profile.certifications[${i}].issuer=this.value;markDirty()"></div>
         <div class="field"><label>Year / Date</label>
-          <input value="${esc(c.year)}" oninput="profile.certifications[${i}].year=this.value;save()"></div>
+          <input value="${esc(c.year)}" oninput="profile.certifications[${i}].year=this.value;markDirty()"></div>
         <div class="field"><label>Credential URL</label>
-          <input value="${esc(c.url)}" placeholder="https://..." oninput="profile.certifications[${i}].url=this.value;save()"></div>
+          <input value="${esc(c.url)}" placeholder="https://..." oninput="profile.certifications[${i}].url=this.value;markDirty()"></div>
       </div>
       <div class="field"><label>Description / Topics</label>
         <input value="${esc(c.description)}"
-          oninput="profile.certifications[${i}].description=this.value;save()"></div>
+          oninput="profile.certifications[${i}].description=this.value;markDirty()"></div>
     </div>`).join('');
 }
 
-function addCert() {
-  profile.certifications.push({ name:'', issuer:'', year:'', description:'', url:'' });
-  save(); renderCerts();
-}
-function rmCert(i) {
-  profile.certifications.splice(i,1); save(); renderCerts();
-}
+function addCert() { profile.certifications.push({ name:'', issuer:'', year:'', description:'', url:'' }); markDirty(); renderCerts(); }
+function rmCert(i) { profile.certifications.splice(i,1); markDirty(); renderCerts(); }
 
 // ═══════════════════════════════════════════════════
-//  Import / Export / Reset
+//  Open / Save  (File System Access API)
 // ═══════════════════════════════════════════════════
 
-function importJSON() {
-  document.getElementById('import-file').click();
+async function openProfileFile() {
+  if (!window.showOpenFilePicker) {
+    // Fallback: classic <input type=file> for Firefox / Safari
+    document.getElementById('import-file').click();
+    return;
+  }
+  try {
+    const [handle] = await window.showOpenFilePicker({
+      types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+      multiple: false,
+    });
+    const text = await (await handle.getFile()).text();
+    applyJSON(text, handle.name);
+    fileHandle = handle;
+    markClean();
+  } catch(e) {
+    if (e.name !== 'AbortError') toast('Could not open: ' + e.message, 'error');
+  }
 }
 
-function handleImport(e) {
+async function saveToFile() {
+  const json = JSON.stringify(profile, null, 2);
+
+  if (fileHandle) {
+    // Write back to the file the user opened
+    try {
+      const writable = await fileHandle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      markClean();
+      toast('💾 Saved to ' + fileHandle.name, 'success');
+    } catch(e) {
+      toast('Save failed: ' + e.message, 'error');
+    }
+    return;
+  }
+
+  // No handle yet — prompt for save location
+  if (window.showSaveFilePicker) {
+    try {
+      fileHandle = await window.showSaveFilePicker({
+        suggestedName: 'profile.json',
+        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+      });
+      const writable = await fileHandle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      markClean();
+      toast('💾 Saved to ' + fileHandle.name, 'success');
+    } catch(e) {
+      if (e.name !== 'AbortError') toast('Save failed: ' + e.message, 'error');
+    }
+  } else {
+    downloadJSON(); // fallback: download
+  }
+}
+
+// Fallback for browsers without File System Access API
+function handleImportFallback(e) {
   const file = e.target.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
-    try {
-      const p = JSON.parse(ev.target.result);
-      const merged = Object.assign({}, EMPTY, p);
-      merged.meta = Object.assign({}, EMPTY.meta, p.meta || {});
-      if (!Array.isArray(merged.achievements))   merged.achievements = [];
-      if (!Array.isArray(merged.certifications)) merged.certifications = [];
-      if (!Array.isArray(merged.experience))     merged.experience = [];
-      if (!Array.isArray(merged.education))      merged.education = [];
-      profile = merged;
-      save(); populateForm();
-      toast('✅ Profile imported', 'success');
-    } catch(err) {
-      toast('Invalid JSON: ' + err.message, 'error');
-    }
+    applyJSON(ev.target.result, file.name);
+    fileHandle = null; // no handle available in fallback mode
+    markClean();
   };
   reader.readAsText(file);
   e.target.value = '';
 }
 
-function exportJSON() {
+function applyJSON(text, label) {
+  try {
+    const p = JSON.parse(text);
+    profile = mergeProfile(p);
+    populateForm();
+    toast('✅ Opened ' + (label || 'profile'), 'success');
+  } catch(err) {
+    toast('Invalid JSON: ' + err.message, 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════════
+//  Download JSON  (backup / fallback)
+// ═══════════════════════════════════════════════════
+
+function downloadJSON() {
   const blob = new Blob([JSON.stringify(profile, null, 2)], { type: 'application/json' });
   const a = Object.assign(document.createElement('a'), {
     href: URL.createObjectURL(blob), download: 'profile.json'
   });
   a.click();
   URL.revokeObjectURL(a.href);
-  toast('⬇️ Exported profile.json', 'success');
+  toast('⬇️ Downloaded profile.json', 'success');
 }
+
+// ═══════════════════════════════════════════════════
+//  Reset
+// ═══════════════════════════════════════════════════
 
 function resetProfile() {
   if (!confirm('Reset everything to an empty profile? This cannot be undone.')) return;
-  profile = JSON.parse(JSON.stringify(EMPTY));
-  save(); populateForm();
+  profile    = JSON.parse(JSON.stringify(EMPTY));
+  fileHandle = null;
+  isDirty    = false;
+  updateFileStatus();
+  populateForm();
   toast('Profile reset', 'success');
 }
 
@@ -841,7 +834,7 @@ function toggleJSONPreview() {
 }
 
 // ═══════════════════════════════════════════════════
-//  Tabs
+//  Tabs / navigation
 // ═══════════════════════════════════════════════════
 
 function switchTab(name, btn) {
@@ -852,12 +845,7 @@ function switchTab(name, btn) {
   if (name === 'preview') renderPreview();
 }
 
-// ═══════════════════════════════════════════════════
-//  Sidebar navigation
-// ═══════════════════════════════════════════════════
-
 function goTo(sectionId) {
-  // Switch to edit tab first
   const editPanel = document.getElementById('panel-edit');
   if (!editPanel.classList.contains('active')) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -866,31 +854,27 @@ function goTo(sectionId) {
     editPanel.classList.add('active');
   }
   const el = document.getElementById(sectionId);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  // Highlight active nav link
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  const navId = 'nav-' + sectionId.replace('sec-','');
-  const navEl = document.getElementById(navId);
+  const navEl = document.getElementById('nav-' + sectionId.replace('sec-',''));
   if (navEl) navEl.classList.add('active');
 }
 
 // ═══════════════════════════════════════════════════
-//  Resume HTML builder  (used for preview + PDF)
+//  Resume HTML builder  (preview + PDF)
 // ═══════════════════════════════════════════════════
 
 function buildResumeHTML(p) {
   const meta = p.meta || {};
   const sub  = [meta.current_title, meta.current_company].filter(Boolean).join('  ·  ');
 
-  const S = (t) =>
+  const S = t =>
     `<div style="font-size:9.5pt;font-weight:700;color:#2c3e7a;text-transform:uppercase;`+
     `letter-spacing:.08em;margin-top:16px;margin-bottom:3px">${t}</div>`+
     `<hr style="border:none;border-top:0.5px solid #ccc;margin-bottom:6px">`;
 
   let h = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:9pt;line-height:1.45;color:#1a1a1a">`;
 
-  // Header
   h += `<div style="font-size:22pt;font-weight:700;color:#1a1a1a;margin-bottom:2px">${esc(p.name)}</div>`;
   if (sub) h += `<div style="font-size:9.5pt;color:#555;margin-bottom:4px">${esc(sub)}</div>`;
   h += `<hr style="border:none;border-top:1.5px solid #2c3e7a;margin:6px 0">`;
@@ -904,45 +888,37 @@ function buildResumeHTML(p) {
     h += `<div style="font-size:8.5pt;color:#555;margin-bottom:3px">${cParts.join('  ·  ')}</div>`;
   if (p.github) {
     const short = String(p.github).replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'');
-    h += `<div style="font-size:8.5pt;color:#555;margin-bottom:6px">GitHub: `+
-         `<a href="${esc(p.github)}" style="color:#2c3e7a">${esc(short)}</a></div>`;
+    h += `<div style="font-size:8.5pt;color:#555;margin-bottom:6px">GitHub: <a href="${esc(p.github)}" style="color:#2c3e7a">${esc(short)}</a></div>`;
   }
 
-  // Summary
   if (p.summary) {
     h += S('Profile');
     h += `<div style="font-size:8.8pt;line-height:1.5;margin-bottom:8px">${esc(p.summary)}</div>`;
   }
 
-  // Experience
   if ((p.experience||[]).length) {
     h += S('Experience');
     for (const exp of p.experience) {
       h += `<div style="display:flex;justify-content:space-between;align-items:baseline">`+
            `<span style="font-size:9.5pt;font-weight:700">${esc(exp.company)}</span>`+
-           `<span style="font-size:8.5pt;color:#555">${esc(exp.start)} – ${esc(exp.end||'Present')}</span>`+
-           `</div>`;
+           `<span style="font-size:8.5pt;color:#555">${esc(exp.start)} – ${esc(exp.end||'Present')}</span></div>`;
       h += `<div style="font-size:9pt;font-style:italic;color:#555;margin-bottom:4px">${esc(exp.title)}</div>`;
       for (const b of (exp.bullets||[]))
-        // bullets may contain intentional HTML (<a> tags from original profile)
         h += `<div style="font-size:8.8pt;margin:0 0 4px 14px;line-height:1.5">• ${b}</div>`;
       h += `<div style="height:5px"></div>`;
     }
   }
 
-  // Education
   if ((p.education||[]).length) {
     h += S('Education');
     for (const edu of p.education) {
       h += `<div style="display:flex;justify-content:space-between;align-items:baseline">`+
            `<span style="font-size:9.5pt;font-weight:700">${esc(edu.university)}</span>`+
            `<span style="font-size:8.5pt;color:#555">${esc(edu.year)}</span></div>`;
-      const gpa = edu.gpa ? `  ·  GPA: ${esc(edu.gpa)}` : '';
-      h += `<div style="font-size:9pt;font-style:italic;color:#555;margin-bottom:6px">${esc(edu.degree)}${gpa}</div>`;
+      h += `<div style="font-size:9pt;font-style:italic;color:#555;margin-bottom:6px">${esc(edu.degree)}${edu.gpa?`  ·  GPA: ${esc(edu.gpa)}`:''}</div>`;
     }
   }
 
-  // Achievements
   if ((p.achievements||[]).some(a=>a)) {
     h += S('Achievements &amp; Community');
     for (const a of p.achievements)
@@ -950,7 +926,6 @@ function buildResumeHTML(p) {
     h += `<div style="height:5px"></div>`;
   }
 
-  // Certifications
   if ((p.certifications||[]).some(c=>c.name)) {
     h += S('Certifications');
     for (const c of p.certifications) {
@@ -965,12 +940,10 @@ function buildResumeHTML(p) {
     h += `<div style="height:5px"></div>`;
   }
 
-  // Skills
   if (Object.keys(p.skills||{}).length) {
     h += S('Skills');
     for (const [cat, items] of Object.entries(p.skills)) {
-      const list = (Array.isArray(items) ? items : []).join(', ');
-      h += `<div style="font-size:8.8pt;margin-bottom:3px"><b>${esc(cat)}:</b>  ${esc(list)}</div>`;
+      h += `<div style="font-size:8.8pt;margin-bottom:3px"><b>${esc(cat)}:</b>  ${esc((Array.isArray(items)?items:[]).join(', '))}</div>`;
     }
   }
 
@@ -997,15 +970,13 @@ function downloadPDF() {
   wrapper.innerHTML = buildResumeHTML(profile);
   document.body.appendChild(wrapper);
 
-  const safeName = (profile.name || 'resume').replace(/\s+/g,'_');
-
   html2pdf().set({
     margin:       [10, 12, 10, 12],
-    filename:     `resume_${safeName}.pdf`,
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true, logging: false },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak:    { mode: ['avoid-all','css'] },
+    filename:     `resume_${(profile.name||'resume').replace(/\s+/g,'_')}.pdf`,
+    image:        { type:'jpeg', quality:0.98 },
+    html2canvas:  { scale:2, useCORS:true, logging:false },
+    jsPDF:        { unit:'mm', format:'a4', orientation:'portrait' },
+    pagebreak:    { mode:['avoid-all','css'] },
   }).from(wrapper).save().then(() => {
     document.body.removeChild(wrapper);
     toast('⬇️ PDF downloaded!', 'success');
@@ -1030,30 +1001,27 @@ function generatePrompt() {
   const co = document.getElementById('tl-co').value.trim() || 'the company';
   const ti = document.getElementById('tl-ti').value.trim() || 'the role';
   const jd = document.getElementById('tl-jd').value.trim();
-
-  const prompt =
+  document.getElementById('tl-prompt').value =
 `Tailor this candidate's resume for the job below.
 Return ONLY valid JSON with the exact same structure as the input profile.
 
 Rules:
 - Rewrite "summary" (2-3 sentences) to speak directly to what this role needs.
 - Rewrite experience bullets to strongly echo the JD's keywords, stack, and requirements.
-- Each bullet: strong action verb → what was built/done → specific tech used → measurable or qualitative impact (25-40 words).
+- Each bullet: strong action verb → what was built/done → specific tech used → measurable impact (25-40 words).
 - Keep bullets factual — rephrase existing achievements, never invent metrics or projects.
-- Reorder skills so the most JD-relevant categories and items appear first.
+- Reorder skills so the most JD-relevant categories appear first.
 - Do NOT change name, email, phone, education, dates, job titles, or company names.
 
 Job: ${ti} at ${co}
 JD excerpt:
-${(jd || 'Software Engineer with AI/ML focus, building scalable systems and LLM-powered products.').slice(0,2000)}
+${(jd||'Software Engineer with AI/ML focus.').slice(0,2000)}
 
 Candidate profile:
 ${JSON.stringify(profile, null, 2)}
 
 Return only the JSON.`;
-
-  document.getElementById('tl-prompt').value = prompt;
-  toast('Prompt ready — copy it and paste into claude.ai', 'success');
+  toast('Prompt ready — copy and paste into claude.ai', 'success');
 }
 
 function copyPrompt() {
@@ -1061,11 +1029,7 @@ function copyPrompt() {
   if (!ta.value) generatePrompt();
   navigator.clipboard.writeText(ta.value)
     .then(() => toast('📋 Copied! Paste into claude.ai', 'success'))
-    .catch(() => {
-      ta.select();
-      document.execCommand('copy');
-      toast('📋 Copied!', 'success');
-    });
+    .catch(() => { ta.select(); document.execCommand('copy'); toast('📋 Copied!', 'success'); });
 }
 
 // ═══════════════════════════════════════════════════
@@ -1082,7 +1046,29 @@ function toast(msg, type = 'success') {
 }
 
 // ═══════════════════════════════════════════════════
-//  Init
+//  Keyboard shortcut
+// ═══════════════════════════════════════════════════
+
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    saveToFile();
+  }
+});
+
+// ═══════════════════════════════════════════════════
+//  Warn before unload if unsaved
+// ═══════════════════════════════════════════════════
+
+window.addEventListener('beforeunload', e => {
+  if (isDirty) {
+    e.preventDefault();
+    e.returnValue = '';
+  }
+});
+
+// ═══════════════════════════════════════════════════
+//  Init  —  start with empty profile
 // ═══════════════════════════════════════════════════
 
 populateForm();
